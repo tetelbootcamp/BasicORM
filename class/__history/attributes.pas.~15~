@@ -1,0 +1,41 @@
+unit attributes;
+
+interface
+
+type
+
+  TTable = class(TCustomAttribute)
+  private
+    FNameTable : string;
+  public
+    constructor Create(aNameTable: string);
+    property NameTable: string read FNameTable write FNameTable;
+  end;
+
+  TFields = class(TCustomAttribute)
+  public
+    function IsPk: Boolean; virtual;
+  end;
+
+  TFieldsPK = class(TFields)
+  public
+    function IsPk: Boolean; override;
+  end;
+
+implementation
+
+{ TTable }
+
+constructor TTable.Create(aNameTable: string);
+begin
+  FNameTable := aNameTable;
+end;
+
+{ TFields }
+
+function TFields.IsPk: Boolean;
+begin
+  Result := True;
+end;
+
+end.

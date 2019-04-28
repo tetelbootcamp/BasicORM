@@ -1,0 +1,20 @@
+unit model.teste;
+
+interface
+
+type
+
+TTeste = class
+  private
+  public
+    property Id: Integer;
+    property Estado: string;
+    property Descricao: string;
+    property Data: TDateTime;
+    property Habitantes: Integer;
+    property RendaPerCapta: Currency;
+  end;
+
+implementation
+
+end.
