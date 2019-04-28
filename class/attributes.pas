@@ -4,7 +4,7 @@ interface
 
 type
 
-  TTable = class(TCustomAttribute)
+  TNameTable = class(TCustomAttribute)
   private
     FNameTable : string;
   public
@@ -26,7 +26,7 @@ implementation
 
 { TTable }
 
-constructor TTable.Create(aNameTable: string);
+constructor TNameTable.Create(aNameTable: string);
 begin
   FNameTable := aNameTable;
 end;

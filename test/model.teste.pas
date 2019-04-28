@@ -3,11 +3,13 @@ unit model.teste;
 interface
 
 uses
-  attributes;
+  attributes,
+  Interfaces.base,
+  Rtti;
 
 type
-  [TTable('Teste')]
-  TTeste = class
+  [TNameTable('Teste')]
+  TTeste = class(TTable)
   private
     FHabitantes: Integer;
     FDescricao: string;

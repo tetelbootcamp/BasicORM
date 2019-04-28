@@ -1,3 +1,5 @@
 # Ignore Paste.
 /bin/*
 /lib/*
+__history/
+__recovery/
