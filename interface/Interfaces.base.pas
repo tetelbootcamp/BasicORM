@@ -2,8 +2,7 @@ unit Interfaces.base;
 
 interface
 
-uses classes,
-  attributes;
+uses classes;
 
 type
   IDataBase = interface

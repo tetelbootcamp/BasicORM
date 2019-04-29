@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
   FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, FireDAC.Phys.IBBase, FireDAC.Comp.UI,
-  FireDAC.Comp.Client, Data.DB, Vcl.StdCtrls;
+  FireDAC.Comp.Client, Data.DB, Vcl.StdCtrls, FireDAC.Stan.Param, FireDAC.DatS,
+  FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet;
 
 type
   TForm1 = class(TForm)
@@ -17,6 +18,7 @@ type
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     FDPhysFBDriverLink1: TFDPhysFBDriverLink;
     Button1: TButton;
+    FDQuery1: TFDQuery;
   private
     { Private declarations }
   public

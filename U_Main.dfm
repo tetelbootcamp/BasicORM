@@ -50,4 +50,9 @@ object Form1: TForm1
     Left = 288
     Top = 96
   end
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    Left = 344
+    Top = 168
+  end
 end
