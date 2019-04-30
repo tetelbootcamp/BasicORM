@@ -111,6 +111,10 @@
         <DCCReference Include="class\attributes.pas"/>
         <DCCReference Include="interface\Interfaces.base.pas"/>
         <DCCReference Include="class\daouib.pas"/>
+        <DCCReference Include="test\U_Test.pas">
+            <Form>F_Test</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -139,12 +143,6 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="bin\BasicORM.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>BasicORM.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="bin\BasicORM.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>BasicORM.exe</RemoteName>
