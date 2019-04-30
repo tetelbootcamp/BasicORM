@@ -3,11 +3,20 @@ unit attributes;
 interface
 
 uses
-  Interfaces.base, Rtti;
+  Interfaces.base, System.RTTI;
 
 type
 
   TResultArray = array of string;
+
+  TFieldAnonymous = record
+    NameTable: string;
+    Sep: string; // <-- utilizada para a separação dos campos no SQL
+    PKs: TResultArray; // chave primária
+    TipoRtti: TRttiType;
+  end;
+
+  TFuncReflection = reference to function(AField: TFieldAnonymous): Integer;
 
   TNameTable = class(TCustomAttribute)
   private
@@ -27,10 +36,35 @@ type
     function IsPk: Boolean; override;
   end;
 
+  //Reflection para os comandos Sql
+  function ReflectionSQL(ATabela: TTable; AnoniComando: TFuncReflection): Integer;
+
   function GetPks(AObject : TObject) : TResultArray;
   function GetNameTable(AObject : TObject) : string;
 
 implementation
+
+function ReflectionSQL(ATabela: TTable; AnoniComando: TFuncReflection): Integer;
+var
+  AField: TFieldAnonymous;
+  Context  : TRttiContext;
+begin
+  AField.NameTable := GetNameTable(ATabela);
+
+  AField.PKs   := GetPks(ATabela);
+
+  Context  := TRttiContext.Create;
+  try
+    AField.TipoRtti := Context.GetType( ATabela.ClassType );
+
+    //executamos os comandos Sql através do método anônimo
+    AField.Sep := '';
+    Result := AnoniComando(AField);
+
+  finally
+    Context.free;
+  end;
+end;
 
 function GetPks(AObject : TObject) : TResultArray;
 var
