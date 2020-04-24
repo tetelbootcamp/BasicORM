@@ -25,9 +25,9 @@ object F_Test: TF_Test
   object Button1: TButton
     Left = 40
     Top = 103
-    Width = 75
+    Width = 105
     Height = 25
-    Caption = 'Button1'
+    Caption = 'Name table'
     TabOrder = 1
     OnClick = Button1Click
   end
@@ -36,7 +36,7 @@ object F_Test: TF_Test
     Top = 103
     Width = 75
     Height = 25
-    Caption = 'Button2'
+    Caption = 'Field PK'
     TabOrder = 2
     OnClick = Button2Click
   end
