@@ -22,7 +22,7 @@ type
     FDatabase: TFDConnection;
     FTransaction: TFDTransaction;
 
-    procedure ConfigParametro(AQuery: TFDQuery; AProp: TRttiProperty; AField: string;  ATable: TTable);
+    procedure ConfigParams(AQuery: TFDQuery; AProp: TRttiProperty; AField: string;  ATable: TTable);
   public
     Qry: TFDQuery;
 
@@ -59,7 +59,7 @@ begin
   FTransaction.Commit;
 end;
 
-procedure TDaoUib.ConfigParametro(AQuery: TFDQuery; AProp: TRttiProperty;
+procedure TDaoUib.ConfigParams(AQuery: TFDQuery; AProp: TRttiProperty;
   AField: string; ATable: TTable);
 begin
   with AQuery do
@@ -135,7 +135,7 @@ begin
         for PropRtti in ACampos.TipoRtti.GetProperties do
           if CompareText(PropRtti.Name, Field) = 0 then
             begin
-              ConfigParametro(Qry, PropRtti, Field, ATable);
+              ConfigParams(Qry, PropRtti, Field, ATable);
             end;
       end;
 
