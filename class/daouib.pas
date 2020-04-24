@@ -142,7 +142,7 @@ begin
       //executa delete
       Prepare();
       ExecSQL;
-      Result := RowsAffected;
+      Result := ExecuteQuery;
     end;
   end;
 
