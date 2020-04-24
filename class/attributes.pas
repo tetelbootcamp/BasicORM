@@ -3,7 +3,8 @@ unit attributes;
 interface
 
 uses
-  Interfaces.base, System.RTTI;
+  Interfaces.base,
+  System.RTTI;
 
 type
 

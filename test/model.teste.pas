@@ -26,7 +26,6 @@ type
   public
     [TFieldPK]
     property Id: Integer read FId write SetId;
-    [TFieldPK]
     property Estado: string read FEstado write SetEstado;
     property Descricao: string read FDescricao write SetDescricao;
     property Data: TDateTime read FData write SetData;
