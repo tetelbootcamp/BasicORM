@@ -115,7 +115,7 @@ begin
   //crio uma variável do tipo TFuncReflexao - um método anônimo
   Comando := function(ACampos: TFieldAnonymous): Integer
   var
-    Campo: string;
+    Field: string;
     PropRtti: TRttiProperty;
   begin
     with Qry do
@@ -127,15 +127,15 @@ begin
 
       //percorrer todos os campos da chave primária
       ACampos.Sep := '';
-      for Campo in ACampos.PKs do
+      for Field in ACampos.PKs do
       begin
-        sql.Add(ACampos.Sep+ Campo + '= :' + Campo);
+        sql.Add(ACampos.Sep+ Field + '= :' + Field);
         ACampos.Sep := ' and ';
         // setando os parâmetros
         for PropRtti in ACampos.TipoRtti.GetProperties do
-          if CompareText(PropRtti.Name, Campo) = 0 then
+          if CompareText(PropRtti.Name, Field) = 0 then
             begin
-              ConfigParametro(Qry, PropRtti, Campo, ATable);
+              ConfigParametro(Qry, PropRtti, Field, ATable);
             end;
       end;
 
